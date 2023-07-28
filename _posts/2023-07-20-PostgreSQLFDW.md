@@ -14,7 +14,7 @@ tags:
 
 # FDW的基本概念
 
-#### 什么是SQL/MED？
+## 什么是SQL/MED？
 
 SQL/MED是为了统一异构数据源的访问方式。2003年SQL/MED加入到ISO/IEC 9075-9标准中，SQL/MED定义为通过foreign-data wrappers（fdw）或datalink（如oracle、pg的dblink）**管理外部数据**的SQL标准扩展。简而言之，SQL/MED是国际SQL扩展标准。很多库已经支持SQL/MED如DB2、MariaDB、PG等等。
 在没用SQL/MED时应用只能自行访问需要的数据源，并在应用层对数据进行处理：
