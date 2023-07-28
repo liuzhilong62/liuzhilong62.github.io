@@ -9,6 +9,7 @@ catalog: true
 tags:
     - PostgreSQL
     - database
+    - FDW
 ---
 
 # FDW的基本概念
