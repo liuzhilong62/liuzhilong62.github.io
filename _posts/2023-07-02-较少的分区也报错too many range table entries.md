@@ -3,7 +3,7 @@ layout:     post
 title:      较少的分区也报错too many range table entries
 date:       2023-07-02
 author:     liuzhilong62
-header-img: img/R.b562854442cbb8d18b8398fe99d27e35.jpeg
+header-img: img/OIP.8M-LvH9_prdEitEAYOEX0gHaEy.jpeg
 
 catalog: true
 tags:
@@ -68,10 +68,10 @@ explain卡了18秒，然后报错
 `src/backend/optimizer/plan/setrefs.c`
 其注释是说setrefs.c是完成计划树后的相关工作的
 ```c
-/*
- *Post-processing of a completed plan tree: fix references to subplan
- *	  vars, compute regproc values for operators, etc
- */
+/*  
+ *Post-processing of a completed plan tree: fix references to subplan  
+ *	  vars, compute regproc values for operators, etc  
+ */  
  ```
 找到第451行的函数：
 ```c
