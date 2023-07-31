@@ -18,7 +18,7 @@ tags:
 
 SQL/MED是为了统一异构数据源的访问方式。2003年SQL/MED加入到ISO/IEC 9075-9标准中，SQL/MED定义为通过foreign-data wrappers（fdw）或datalink（如oracle、pg的dblink）**管理外部数据**的SQL标准扩展。简而言之，SQL/MED是国际SQL扩展标准。很多库已经支持SQL/MED如DB2、MariaDB、PG等等。
 在没用SQL/MED时应用只能自行访问需要的数据源，并在应用层对数据进行处理：
-![talk_1689820405055](/Users/liu/Documents/00temp/talk_1689820405055.png)
+![talk_1689820405055](/postimg/talk_1689820405055.png)
 使用SQL/MED后，数据访问架构会更清晰
 ![talk_1689820404976](/Users/liu/Documents/00temp/talk_1689820404976.png)
 但是，这个架构图看上去是简化了，对于数据库的IO、计算压力却提升了。这跟当今把计算从数据库剥离到应用层的思想是违背的。
