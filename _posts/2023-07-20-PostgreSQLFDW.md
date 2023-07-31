@@ -20,14 +20,14 @@ SQL/MED是为了统一异构数据源的访问方式。2003年SQL/MED加入到IS
 在没用SQL/MED时应用只能自行访问需要的数据源，并在应用层对数据进行处理：
 ![talk_1689820405055](/postimg/talk_1689820405055.png)
 使用SQL/MED后，数据访问架构会更清晰
-![talk_1689820404976](/Users/liu/Documents/00temp/talk_1689820404976.png)
+![talk_1689820404976](/postimg/talk_1689820404976.png)
 但是，这个架构图看上去是简化了，对于数据库的IO、计算压力却提升了。这跟当今把计算从数据库剥离到应用层的思想是违背的。
 当然两种方案各有优劣，有些场景下SQL/MED还是会使用到。
 SQL/MED作为一个标准存在，PostgreSQL也通过FDW极好的支持了SQL/MED标准。
 
 ## 什么是FDW？
 
-![talk_1689820404895](/Users/liu/Documents/00temp/talk_1689820404895.png)
+![talk_1689820404895](/postimg/talk_1689820404895.png)
 
 postgresql从开始9.1支持fdw。用户可以通过常规的SQL语句访问外部数据（foreign data）。foreign data通过foreign data wrapper（fdw）来访问。postgresql数据库中的fdw本身是一个library ，因为不同的外部数据对应这不同的fdw插件，所以我们也常说说它是fdw插件。
 pg中的FDW功能十分强大，不仅支持多种数据源，还对数据访问做了优化，甚至可以用来做“超出预期”的事情，比如集群功能的实现。
@@ -209,7 +209,7 @@ psql自带的快捷命令比较清晰，可以简单的查看外部表的4个对
 | foreign_tables                               | 信息较少，基表                    |
 
 这些视图/表看上去挺乱的，但是实际上结构还比较清楚。4种对象的数据字典基表都基本都是一个逻辑
-![talk_1689820404934](/Users/liu/Documents/00temp/talk_1689820404934.png)
+![talk_1689820404934](/postimg/talk_1689820404934.png)
 
  - pg_xxx是基表，是4个对象的基础信息来源
  - information_schema._pg_xxx 关联了pg_xxx基表和其他一些信息，information_schema._pg_xxx是一个汇总的视图，信息比较全面
@@ -389,7 +389,7 @@ OPTIONS ( filename 'pg_log/postgresql-07-06.csv', format 'csv' );
 
 ### SQL执行过程
 
-![talk_1689820405096](/Users/liu/Documents/00temp/talk_1689820405096.png)
+![talk_1689820405096](/postimg/talk_1689820405096.png)
 
   1. 解析器通过外部表的定义生成查询树
   2. 计划器连接到外部服务foreign server
@@ -445,9 +445,9 @@ postgres_fdw支持where下推，下推后不需要返回全部数据到本地库
 
 pg直接将整个语句发送给远程库执行，where在远程库进行过滤。
 
-![talk_1689820405154](/Users/liu/Documents/00temp/talk_1689820405154.png)
+![talk_1689820405154](/postimg/talk_1689820405154.png)
 
-![talk_1689820405017](/Users/liu/Documents/00temp/talk_1689820405017.png)
+![talk_1689820405017](/postimg/talk_1689820405017.png)
 
 **sort下推**
 postgres_fdw支持sort下推，同样可以发送sort给远程库执行。注意sort的默认模式。
@@ -644,7 +644,7 @@ postgres_fdw非常强大，并且不断的在版本更新中提升。以下表�
 有许多分支基于PostgreSQL已经实现了sharding功能，比如XC/XL、Citus等等，但是PostgreSQL本身是单实例数据库，目前还没有原生支持sharding。并且虽然很多分支实现了sharding但也会造成其版本跟PostgreSQL社区版本存在lag。
 由于SQL/MED本身是为了访问外部数据而定义的标准，所以postgres_fdw可以通过访问外部实例的方式实sharding功能。基于FDW实现sharding的方案目前来看是对代码改动最小的，并且很多分支也是基于这个方案来实现。
 所以PostgreSQL原生支持sharding一直呼声很高，社区也考虑过用postgres_fdw实现sharding功能
-![talk_1689820405188](/Users/liu/Documents/00temp/talk_1689820405188.png)
+![talk_1689820405188](/postimg/talk_1689820405188.png)
 
 
 ### 实现sharding的核心功能
