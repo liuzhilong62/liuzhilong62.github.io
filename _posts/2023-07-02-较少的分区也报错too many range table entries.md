@@ -3,7 +3,7 @@ layout:     post
 title:      较少的分区也报错too many range table entries
 date:       2023-07-02
 author:     liuzhilong62
-header-img: img/OIP.8M-LvH9_prdEitEAYOEX0gHaEy.jpeg
+header-img: img/home-bg-o.jpg
 
 catalog: true
 tags:
